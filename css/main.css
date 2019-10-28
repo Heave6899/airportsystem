@@ -1,0 +1,29 @@
+body{
+    background-attachment: fixed;
+    background-image: url('../resources/backgroundbanner.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%; 
+    background-position: top center;
+    max-width: 100%;
+    height: auto;
+}
+
+.login{
+  
+    background-color: rgba(255, 255, 255, 0.4); 
+    width: 40%;
+    height: auto;
+    text-align: center;
+    border: none;
+    z-index: 2;
+}
+.container{
+    border-radius: 30px;
+}
+.right{
+    float:right;
+}
+.left{
+    float: left;
+}
+
