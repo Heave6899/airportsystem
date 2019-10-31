@@ -6,16 +6,8 @@ function loginsignup(){
         login.style.display = "none";
     }
 }
-
-function signup(){
-    var login = document.getElementById("log");
-    var signup = document.getElementById("signup");
-        login.style.display = "none";
-        signup.style.display = "block";
+var rows=0;
+function flightnews(){
+    
 }
-function logon(){
-    var login = document.getElementById("log");
-    var signup = document.getElementById("signup");
-        login.style.display = "block";
-        signup.style.display = "none";
-}
+setInterval(flightnews,10000);

@@ -3,6 +3,7 @@
 include 'db_connection.php';
 $conn = OpenCon();
 session_start();
+include 'script.php';
 ?>
 <head>
     <title>Welcome to the Airport System</title>
@@ -16,86 +17,42 @@ session_start();
 <script src="js/main.js"></script>
 <body>
 <!--nav-->
-<section id="nav">
-<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed navbar-top-fixed">
-  <a class="navbar-brand" href="#home">AMS</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#login" onclick="loginsignup();">Login/SignUp</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search Website" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
+<section id="nav" class="navbar" style="position: fixed;padding:0%; width: 100%;">
+<div class="navbar">
+  <span><a href="index.php"><image src="resources/logo.jpg" width="40px;"></a></span>
+  <a href="#home">Home</a>
+  <a href="#news">News</a>
+  <a href="#login" onclick="loginsignup()">Login</a>
+  <a href="#contact">Contact</a>
+</div>
 </section>
+<section id="home"></section>
 <!--/nav-->
-<section id="login" style = "display: none;">
-    <div class="container login">
-    <div class="container login-container">
-            <div class="row">
-                <div class="col-md-6 login-form-1" id="log">
-                    <h3>Login</h3>
-                    <form action="#" method="get">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Email *" value="" required/>
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Your Password *" value="" required/>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" class="btnSubmit" value="Login" />
-                        </div>
-                        <div class="form-group">
-                            <a href="#" class="ForgetPwd" onclick="signup()">Don't have an account? SignUp</a>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-md-6 login-form-2" id="signup">
-                    <h3>SignUp</h3>
-                    <form>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Email *" value="" />
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Your Password *" value="" />
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" class="btnSubmit" value="Login" />
-                        </div>
-                        <div class="form-group">
-                            <a href="#" class="ForgetPwd" value="Login" onclick="logon();">Already have an account? Login</a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        
-    </div>
+<!--login-->
+<section id="login" class="login" style="display: none;">
+    <div class="login-container">
+        hihihihihi
+    </div>           
 </section>
-<section id="flightticket">
-<?php
-$sql = "SELECT * FROM `city`";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "<br>". $row["CNAME"]. " ". $row["STATE"]. " " . $row["COUNTRY"] . "<br>";
-    }
-} else {
-    echo "0 results";
-}
-?>
+<!--/login-->
+<!--main-->
+<section class="main">
+    <!--news-->
+    <section id="news">
+    <table>
+    <thead>
+        <tr>
+            <th>Flight Code</th>
+            <th>Arrival</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody id="newsflash">
+    </tbody>
+    </table>
+    </section>
+    <!--/news-->
 </section>
+<!--/main-->
 </body>
 </html>
